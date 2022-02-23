@@ -1,0 +1,38 @@
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+	<head>
+		<title>Add Series</title>
+		
+		<link rel="stylesheet" 
+			href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" 
+			integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" 
+			crossorigin="anonymous" />
+	</head>
+	<body>
+		
+		<div class="container">
+		
+			<h3>Add New Series</h3>
+			<hr/>
+			
+			<form th:action="@{/saveSeries}" th:object="${series}" method="POST">
+				
+				<input type="text" th:field="*{nameOfTheSeries}" class="form-control col-4 mb-4" placeholder="Enter Name of the Series" />
+				
+				<input type="text" th:field="*{AvgDurationOfEachEp}" class="form-control col-4 mb-4" placeholder="Enter avg duration of each episode" />
+				
+				<input type="number" th:field="*{NumberOfSeasons}" class="form-control col-4 mb-4" placeholder="number of seasons" />
+				
+				<input type="text" th:field="*{Ott}" class="form-control col-4 mb-4" placeholder="Available on" />
+				
+				<input type="number" th:field="*{YearOfRelease}" class="form-control col-4 mb-4" placeholder="Year of Release" />
+				
+				<button type="submit" class="btn btn-primary col-2">Save</button>
+				<!--<input type="hidden" th:field="*{seriesid}" />-->
+			</form>
+			<hr/>
+			<a th:href="@{/series}">Back to list </a>
+		</div>
+		
+	</body>
+</html>
